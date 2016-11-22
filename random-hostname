@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+import random
+import os
+
+# setting our random hostname
+rHostname = "android-%02x%02x%02x%02x%02x%02x%02x%02x" % (
+    random.randint(0, 255),
+    random.randint(0, 255),
+    random.randint(0, 255),
+    random.randint(0, 255),
+    random.randint(0, 255),
+    random.randint(0, 255),
+    random.randint(0, 255),
+    random.randint(0, 255),
+    )
+    
+# system call to execute the commands
+# ComputerName   The user-friendly name for the system.
+# LocalHostName  The local (Bonjour) host name.
+# HostName       The name associated with hostname(1) and gethostname(3).  
+
+os.system("sudo scutil --set HostName " + rHostname )
+os.system("sudo scutil --set ComputerName " + rHostname )
+os.system("sudo scutil --set LocalHostName " + rHostname )
+
+# inform the user about your new hostname
+print "your new hostname is: " + rHostname 
