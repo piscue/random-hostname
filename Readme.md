@@ -19,10 +19,10 @@ Any help is welcome as always
 
 copy the script and the launchd configuration to their places, go to where this files are located in the Terminal *cd ~/Download/random-hostname* and then:
 
-`sudo cp random-hostname /usr/local/bin
+```sudo cp random-hostname /usr/local/bin
 sudo cp local.randomhostname.plist /Library/LaunchDaemons
 sudo chmod 644 /Library/LaunchDaemons/local.randomhostname.plist
-sudo chown root:wheel /Library/LaunchDaemons/local.randomhostname.plist`
+sudo chown root:wheel /Library/LaunchDaemons/local.randomhostname.plist```
 
 ## Usage
 
