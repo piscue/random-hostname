@@ -17,7 +17,7 @@ Any help is welcome as always
 
 ## Install
 
-copy the script and the launchd configuration to their places, go to where this files are located in the Terminal *cd ~/Download/random-hostname* and then:
+copy the script and the launchd configuration to their places, go to where this files are located in the Terminal *cd ~/Download/random-hostname-master* and then:
 
 ```
 sudo cp random-hostname /usr/local/bin
