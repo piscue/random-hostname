@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import random
 import os
 
@@ -13,15 +13,25 @@ rHostname = "android-%02x%02x%02x%02x%02x%02x%02x%02x" % (
     random.randint(0, 255),
     random.randint(0, 255),
     )
-    
-# system call to execute the commands
-# ComputerName   The user-friendly name for the system.
-# LocalHostName  The local (Bonjour) host name.
-# HostName       The name associated with hostname(1) and gethostname(3).  
 
-os.system("sudo scutil --set HostName " + rHostname )
-os.system("sudo scutil --set ComputerName " + rHostname )
-os.system("sudo scutil --set LocalHostName " + rHostname )
+# system call to execute the commands
+if os.sys.platform == "darwin":
+    # Mac OS
+    # ComputerName   The user-friendly name for the system.
+    # LocalHostName  The local (Bonjour) host name.
+    # HostName       The name associated with hostname(1) and gethostname(3).
+
+    os.system("sudo scutil --set HostName " + rHostname)
+    os.system("sudo scutil --set ComputerName " + rHostname)
+    os.system("sudo scutil --set LocalHostName " + rHostname)
+elif os.sys.platform == "linux":
+    # Linux
+    os.system("sudo hostname " + rHostname)
+elif os.sys.platform == "win32":
+    # Windows
+    os.system(
+        "wmic computersystem where name=\"%COMPUTERNAME%\" call rename name=\"" + rHostname + "\""
+        )
 
 # inform the user about your new hostname
-print "your new hostname is: " + rHostname 
+print("your new hostname is: " + rHostname)
