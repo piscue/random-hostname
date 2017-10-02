@@ -3,7 +3,7 @@ import random
 import os
 
 # setting our random hostname
-rHostname = "android-%02x%02x%02x%02x%02x%02x%02x%02x" % (
+HOSTNAME = "android-%02x%02x%02x%02x%02x%02x%02x%02x" % (
     random.randint(0, 255),
     random.randint(0, 255),
     random.randint(0, 255),
@@ -21,17 +21,17 @@ if os.sys.platform == "darwin":
     # LocalHostName  The local (Bonjour) host name.
     # HostName       The name associated with hostname(1) and gethostname(3).
 
-    os.system("sudo scutil --set HostName " + rHostname)
-    os.system("sudo scutil --set ComputerName " + rHostname)
-    os.system("sudo scutil --set LocalHostName " + rHostname)
+    os.system("sudo scutil --set HostName " + HOSTNAME)
+    os.system("sudo scutil --set ComputerName " + HOSTNAME)
+    os.system("sudo scutil --set LocalHostName " + HOSTNAME)
 elif os.sys.platform == "linux":
     # Linux
-    os.system("sudo hostname " + rHostname)
+    os.system("sudo hostname " + HOSTNAME)
 elif os.sys.platform == "win32":
     # Windows
     os.system(
-        "wmic computersystem where name=\"%COMPUTERNAME%\" call rename name=\"" + rHostname + "\""
+        "wmic computersystem where name=\"%COMPUTERNAME%\" call rename name=\"" + HOSTNAME + "\""
         )
 
 # inform the user about your new hostname
-print("your new hostname is: " + rHostname)
+print("your new hostname is: " + HOSTNAME)
